@@ -31,72 +31,16 @@ function createItemList(allItems, inputs) {
 function createCartList(itemList, inputs) {
   var cartList = [];
 
-  for (var i = 0; i < itemList.length; i++) {
-     var count = 1;
-    var isExist = false;
-
-    if (inputs[i].length > 10) {
-       count = parseInt(inputs[i].substring(inputs[i].indexOf('-') + 1));
-     }
-
-     for (var k = 0; k < cartList.length; k++) {
-       if (cartList[k].barcode === itemList[i].barcode) {
-         cartList[k].count += count;
-         isExist = true;
-       }
-     }
-
-     if (!isExist) {
-       var temp = {
-         name: itemList[i].name,
-         unit: itemList[i].unit,
-         price: itemList[i].price,
-         img: itemList[i].img,
-         count: count,
-         barcode: itemList[i].barcode
-       }
-       cartList.push(temp);
-     }
-  }
+  // TODO...
 
   return cartList;
 }
 
 function caculateDiscount (cartList, promotions) {
-  var promotion = promotions[0];
   var cartItems = [];
   var discountProductList = [];
 
-  for (var m = 0; m < cartList.length; m++) {
-    var savedCount = 0;
-
-    for (var n = 0; n < promotion.barcodes.length; n++) {
-      if (cartList[m].barcode === promotion.barcodes[n]) {
-        savedCount = parseInt(cartList[m].count / 3);
-        var discountItem = {
-          name: cartList[m].name,
-          count: savedCount,
-          unit: cartList[m].unit,
-          price: cartList[m].price
-        };
-
-        discountProductList.push(discountItem);
-      }
-    }
-
-    var totalPrice = (cartList[m].count - savedCount) * cartList[m].price;
-
-    var temp = {
-      name: cartList[m].name,
-      count: cartList[m].count,
-      unit: cartList[m].unit,
-      price: cartList[m].price,
-      totalPrice: totalPrice,
-      img: cartList[m].img
-    }
-
-    cartItems.push(temp);
-  }
+  // TODO...
 
   return { cartItems: cartItems, discountProductList: discountProductList };
 }
