@@ -120,7 +120,9 @@ function createSummary (cartItems, discountProductList) {
 }
 
 function generateOutputs(inputs) {
+  // 获取全部的商品
   var allItems = loadAllItems();
+  // 获取全部的促销信息
   var promotions = loadPromotions();
 
   var itemList = createItemList(allItems, inputs)

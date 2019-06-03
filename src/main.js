@@ -1,46 +1,3 @@
-// var cartItems = [
-//     {
-//         name: '可口可乐',
-//         count: 3,
-//         unit: '瓶',
-//         price: 3,
-//         img: './imgs/coco-cola.jpg',
-//         totalPrice: 6
-//     },
-//     {
-//         name: '羽毛球',
-//         count: 5,
-//         unit: '个',
-//         price: 1,
-//         img: './imgs/badminton.png',
-//         totalPrice: 4.00
-//     },
-//     {
-//         name: '苹果',
-//         count: 2,
-//         unit: '斤',
-//         price: 5.50,
-//         img: './imgs/apple.jpeg',
-//         totalPrice: 11.00
-//     }
-// ]
-//
-// var discountProductList = [
-//     { name: '可口可乐', count: 1, unit: '瓶' },
-//     { name: '羽毛球', count: 1, unit: '个' },
-//
-// ]
-//
-// var summary = {
-//     totalPrice: 21,
-//     discountPrice: 4.00
-// }
-//
-// var result = {
-//     cartItems: cartItems,
-//     discountProductList: discountProductList,
-//     summary: summary
-// }
 function generatorTemplate(cartItems) {
     var template = ''
     cartItems.forEach(function (cartItem) {
@@ -90,7 +47,7 @@ function renderView(result) {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.confirm').addEventListener('click', function() {
-        var userInput = document.querySelector('#user-input').value.split(',')
+        var userInput = document.querySelector('#user-input').value.split(',').map(item => item.trim())
 
         var result = generateOutputs(userInput)
         renderView(result)
